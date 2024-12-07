@@ -1,6 +1,7 @@
 {
   "extends": "tsconfig/client.json",
   "compilerOptions": {
+    "jsx": "react",
     "rootDir": "../",
     "baseUrl": ".",
     "paths": {
