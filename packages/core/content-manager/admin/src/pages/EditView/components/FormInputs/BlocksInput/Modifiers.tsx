@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Typography, TypographyComponent } from '@strapi/design-system';
-import { Bold, Italic, Underline, StrikeThrough, Code } from '@strapi/icons';
+import { Bold, Italic, Underline, StrikeThrough, Minus, Code, ChevronUp } from '@strapi/icons';
 import { type MessageDescriptor } from 'react-intl';
 import { Editor, Text, Transforms } from 'slate';
 import { styled, css } from 'styled-components';
@@ -24,6 +24,12 @@ const ItalicText = styled<TypographyComponent>(Typography)`
 const UnderlineText = styled<TypographyComponent>(Typography).attrs({
   textDecoration: 'underline',
 })`
+  ${stylesToInherit}
+`;
+
+const SuperscriptText = styled<TypographyComponent>(Typography)`
+  vertical-align: super;
+  font-size: smaller;
   ${stylesToInherit}
 `;
 
@@ -110,8 +116,16 @@ const modifiers: ModifiersStore = {
     handleToggle: (editor) => baseHandleToggle(editor, 'underline'),
     renderLeaf: (children) => <UnderlineText>{children}</UnderlineText>,
   },
+  superscript: {
+    icon: ChevronUp,
+    isValidEventKey: (event) => event.key === 'z',
+    label: { id: 'components.Blocks.modifiers.superscript', defaultMessage: 'Superscript' },
+    checkIsActive: (editor) => baseCheckIsActive(editor, 'superscript'),
+    handleToggle: (editor) => baseHandleToggle(editor, 'superscript'),
+    renderLeaf: (children) => <SuperscriptText>{children}</SuperscriptText>,
+  },
   strikethrough: {
-    icon: StrikeThrough,
+    icon: Minus,
     isValidEventKey: (event) => event.key === 'S' && event.shiftKey,
     label: { id: 'components.Blocks.modifiers.strikethrough', defaultMessage: 'Strikethrough' },
     checkIsActive: (editor) => baseCheckIsActive(editor, 'strikethrough'),
