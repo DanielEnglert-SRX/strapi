@@ -83,7 +83,7 @@ const baseHandleToggle = (editor: Editor, name: ModifierKey) => {
 
 const modifiers: ModifiersStore = {
   bold: {
-    icon: Bold,
+    icon: Underline,
     isValidEventKey: (event) => event.key === 'b',
     label: { id: 'components.Blocks.modifiers.bold', defaultMessage: 'Bold' },
     checkIsActive: (editor) => baseCheckIsActive(editor, 'bold'),
