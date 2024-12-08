@@ -111,7 +111,7 @@ const modifiers: ModifiersStore = {
     renderLeaf: (children) => <UnderlineText>{children}</UnderlineText>,
   },
   strikethrough: {
-    icon: StrikeThrough,
+    icon: Underline,
     isValidEventKey: (event) => event.key === 'S' && event.shiftKey,
     label: { id: 'components.Blocks.modifiers.strikethrough', defaultMessage: 'Strikethrough' },
     checkIsActive: (editor) => baseCheckIsActive(editor, 'strikethrough'),
