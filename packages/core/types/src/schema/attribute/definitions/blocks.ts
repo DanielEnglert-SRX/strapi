@@ -42,6 +42,7 @@ interface TextInlineNode {
   underline?: boolean;
   strikethrough?: boolean;
   code?: boolean;
+  superscript?: boolean;
 }
 
 interface BaseNode {
